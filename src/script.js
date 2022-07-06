@@ -5,8 +5,6 @@
  * @LastEditors: yzq
  */
 
-// import '../src/style.css'
-
 window.addEventListener('scroll', (e) => {
   // console.log('test')
   let scrolled = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
