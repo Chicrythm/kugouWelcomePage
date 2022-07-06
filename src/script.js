@@ -5,7 +5,7 @@
  * @LastEditors: yzq
  */
 
-import '../src/style.css'
+// import '../src/style.css'
 
 window.addEventListener('scroll', (e) => {
   // console.log('test')
@@ -22,7 +22,7 @@ window.addEventListener('scroll', (e) => {
   $theChip.style.width = $theChip.style.height = document.documentElement.clientWidth * 20 * (scrolled * scrolled * scrolled) + 'px'
 
   if (scrolled <= 0.1) {
-    // 透明度从 1 - 0 变化
+    // 透明度从 1 - 0 变化·
     $h1.style.opacity = (0.1 - scrolled) / 0.1
     // 利用负上外边距让元素往上移动
     $h1.style.marginTop = scrolled * 1000 * -1 + 'px'
