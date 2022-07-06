@@ -14,7 +14,7 @@ window.addEventListener('scroll', (e) => {
   let $chipMask = document.querySelector('.chip-mask')
   // console.log('$theChip',$theChip)
   let $Kugou = document.querySelector('#kugou')
-  let $A13TextBg = document.querySelector('#the-chip .text-bg')
+  let $TextBg = document.querySelector('#the-chip .text-bg')
   
   // 让图片跟随 scroll 程度变化大小
   $theChip.style.width = $theChip.style.height = document.documentElement.clientWidth * 20 * (scrolled * scrolled * scrolled) + 'px'
@@ -35,21 +35,21 @@ window.addEventListener('scroll', (e) => {
   }
   
   if (scrolled >= 0.5) {
-    $A13TextBg.style.opacity = (1 - scrolled) / 0.5
+    // 文字背景板透明度设置
+    $TextBg.style.opacity = (1 - scrolled) / 0.5
+    // 底层外框透明度设置
     $chipMask.style.opacity = (1 - scrolled) / 0.5
-    // 先让底层 css 设置背景为 transparent
+    // 底层 css 设置背景为 transparent，掩盖背景黑色
     $theChip.classList.add('transparent')
   } else {
-    $A13TextBg.style.opacity = 1
+    $TextBg.style.opacity = 1
     $theChip.classList.remove('transparent')
   }
 
   console.log(scrolled)
+  // 改变整体透明度实现图片也透明
   if (scrolled >= 0.80) {
     $theChip.style.opacity = (1 - scrolled) / 0.2
-    if(scrolled > 0.90) {
-      $theChip.style.opacity = 0
-    }
   } else {
     $theChip.style.opacity = 1
   }
