@@ -8,11 +8,13 @@
 import '../src/style.css'
 
 window.addEventListener('scroll', (e) => {
-  console.log('test')
+  // console.log('test')
   let scrolled = document.documentElement.scrollTop / (document.documentElement.scrollHeight - document.documentElement.clientHeight)
   
   let $h1 = document.querySelector('h1')
   let $theChip = document.querySelector('#the-chip')
+  let $chipMask = document.querySelector('.chip-mask')
+  // console.log('$theChip',$theChip)
   let $Kugou = document.querySelector('#kugou')
   let $A13TextBg = document.querySelector('#the-chip .text-bg')
   
@@ -36,14 +38,20 @@ window.addEventListener('scroll', (e) => {
   
   if (scrolled >= 0.5) {
     $A13TextBg.style.opacity = (1 - scrolled) / 0.5
+    $chipMask.style.opacity = (1 - scrolled) / 0.5
+    // 先让底层 css 设置背景为 transparent
     $theChip.classList.add('transparent')
   } else {
     $A13TextBg.style.opacity = 1
     $theChip.classList.remove('transparent')
   }
+
   console.log(scrolled)
   if (scrolled >= 0.80) {
     $theChip.style.opacity = (1 - scrolled) / 0.2
+    if(scrolled > 0.90) {
+      $theChip.style.opacity = 0
+    }
   } else {
     $theChip.style.opacity = 1
   }
